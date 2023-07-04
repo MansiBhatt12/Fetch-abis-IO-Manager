@@ -1,7 +1,5 @@
 import requests
 import csv
-# import pandas as pd
-# import polars as pl
 
 from dagster import asset
 
@@ -33,13 +31,6 @@ def contract_api_assets():
         writer = csv.writer(csvfile, delimiter=",")
         for row in apis:
             writer.writerow(row.values())
-
-    # df = pd.DataFrame(apis)
-    # pl_df = pl.from_pandas(df)
-
-    # print(pl_df)
-
-    # return pl_df
 
     return apis
 

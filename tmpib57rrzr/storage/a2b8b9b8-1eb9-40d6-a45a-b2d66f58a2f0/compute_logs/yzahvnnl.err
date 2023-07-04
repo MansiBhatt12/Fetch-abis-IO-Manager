@@ -1,0 +1,2 @@
+[32m2023-07-04 00:26:41 +0530[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - a2b8b9b8-1eb9-40d6-a45a-b2d66f58a2f0 - 53626 - LOGS_CAPTURED - Started capturing logs in process (pid: 53626).
+[32m2023-07-04 00:26:41 +0530[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - a2b8b9b8-1eb9-40d6-a45a-b2d66f58a2f0 - 53626 - contract_api_assets - STEP_START - Started execution of step "contract_api_assets".
