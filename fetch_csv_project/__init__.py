@@ -15,9 +15,10 @@ from . import assets
 
 all_assets = load_assets_from_modules([assets])
 
-
+#define a job that will materialize the assets
 contract_job = define_asset_job("contract_job", selection=AssetSelection.all())
 
+#ScheduleDefinition the job it should run and a cron schedule of how frequently to run it
 contract_schedule = ScheduleDefinition(
     job=contract_job,
     cron_schedule="0 * * * *",  # every hour
