@@ -22,17 +22,22 @@ To run the project, you will need to have Dagster installed (installation instru
 
 2. Install the dependencies
 
+```bash
 pip install -e ".[dev]"
+```
 
-    Note: Don't forget to import, install necessary packages
-
+Note: Don't forget to import, install necessary packages
+```bash
 pip install package_name
+```
 
 3. The input CSV file is already placed in the data directory named address.csv, this CSV file contains one column named "ADDRESS" that holds the contract addresses.
 
 4. Run the command
 
+```bash
 dagster dev
+```
 
 This will start the Dagster UI on your local machine. You can then use the UI to interact with the project.
 
