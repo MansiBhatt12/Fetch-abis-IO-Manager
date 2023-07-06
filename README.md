@@ -2,8 +2,8 @@
 
 This Dagster project demonstrates a data pipeline that reads contract addresses from a CSV file containing 500 contract addresses. It utilizes an IO manager to read and write CSV file values to the file system. The pipeline fetches ABI data for each contract address and saves the results into another CSV file. The project consists of the following files:
 
-* asset.py : This file contains the code to fetch the ABIs and also defines asset.
-* init.py : This file defines the jobs and schedules that are used by the project.
+* asset.py : This file contains the code to fetch the ABIs, defines asset and i/o manager class to read, write, vreate and store result in csv file.
+* init.py : This file defines the jobs,schedules, sensor and i/o manager that are used by the project.
 
 ## Features
 
