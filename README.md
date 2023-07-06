@@ -10,8 +10,8 @@ This Dagster project demonstrates a data pipeline that reads contract addresses 
 * The project can fetch ABIs (Application Binary Interfaces) for 500 contract addresses from the Etherscan API.
 * It reads the contract addresses from a CSV file and saves the fetched ABIs to a CSV file in the file system with the help of I/O Manager.
 * The project includes a scheduled pipeline that is configured to run automatically every hour.
-* The pipeline consists of a predefined job and schedule, ensuring regular execution and data updates.
-* A sensor is implemented to periodically check for changes to the contract API assets. It monitors the assets at a 30-second interval and triggers pipeline execution when changes are detected.
+* The pipeline consists of a predefined job ensuring regular execution and data updates.
+* A sensor is implemented to periodically check for changes to the contract API assets. It monitors the assets at a 30 seconds interval and triggers pipeline execution when changes are detected.
 * The project uses the File System I/O Manager, allowing it to store the fetched ABIs in a directory called 'data' on the local file system. This provides a more permanent and accessible location     for the data.
 
 ## Setup
