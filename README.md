@@ -1,48 +1,41 @@
-# fetch_csv_project
+# Dagster Project: Fetch ABIs using I/O Manager
 
-This is a [Dagster](https://dagster.io/) project scaffolded with [`dagster project scaffold`](https://docs.dagster.io/getting-started/create-new-project).
+This Dagster project demonstrates a data pipeline that reads contract addresses from a CSV file containing 500 contract addresses. It utilizes an IO manager to read and write CSV file values to the file system. The pipeline fetches ABI data for each contract address and saves the results into another CSV file. The project consists of the following files:
 
-## Getting started
+* asset.py : This file contains the code to fetch the ABIs and also defines asset.
+* init.py : This file defines the jobs and schedules that are used by the project.
 
-First, install your Dagster code location as a Python package. By using the --editable flag, pip will install your Python package in ["editable mode"](https://pip.pypa.io/en/latest/topics/local-project-installs/#editable-installs) so that as you develop, local code changes will automatically apply.
+## Features
 
-```bash
+* The project can fetch ABIs (Application Binary Interfaces) for 500 contract addresses from the Etherscan API.
+* It reads the contract addresses from a CSV file and saves the fetched ABIs to a CSV file in the file system with the help of I/O Manager.
+* The project includes a scheduled pipeline that is configured to run automatically every hour.
+* The pipeline consists of a predefined job and schedule, ensuring regular execution and data updates.
+* A sensor is implemented to periodically check for changes to the contract API assets. It monitors the assets at a 30-second interval and triggers pipeline execution when changes are detected.
+* The project uses the File System I/O Manager, allowing it to store the fetched ABIs in a directory called 'data' on the local file system. This provides a more permanent and accessible location     for the data.
+
+## Setup
+
+To run the project, you will need to have Dagster installed (installation instructions: https://docs.dagster.io/getting_started/installation). Once you have Dagster installed in your python local environment, you can run the project by following these steps:
+
+1. Clone the repository or download the project files.
+
+2. Install the dependencies
+
 pip install -e ".[dev]"
-```
 
-Then, start the Dagster UI web server:
+    Note: Don't forget to import, install necessary packages
 
-```bash
+pip install package_name
+
+3. The input CSV file is already placed in the data directory named address.csv, this CSV file contains one column named "ADDRESS" that holds the contract addresses.
+
+4. Run the command
+
 dagster dev
-```
 
-Open http://localhost:3000 with your browser to see the project.
+This will start the Dagster UI on your local machine. You can then use the UI to interact with the project.
 
-You can start writing assets in `fetch_csv_project/assets.py`. The assets are automatically loaded into the Dagster code location as you define them.
+Open your web browser and navigate to http://localhost:3000 to access the Dagster UI.
 
-## Development
-
-
-### Adding new Python dependencies
-
-You can specify new Python dependencies in `setup.py`.
-
-### Unit testing
-
-Tests are in the `fetch_csv_project_tests` directory and you can run tests using `pytest`:
-
-```bash
-pytest fetch_csv_project_tests
-```
-
-### Schedules and sensors
-
-If you want to enable Dagster [Schedules](https://docs.dagster.io/concepts/partitions-schedules-sensors/schedules) or [Sensors](https://docs.dagster.io/concepts/partitions-schedules-sensors/sensors) for your jobs, the [Dagster Daemon](https://docs.dagster.io/deployment/dagster-daemon) process must be running. This is done automatically when you run `dagster dev`.
-
-Once your Dagster Daemon is running, you can start turning on schedules and sensors for your jobs.
-
-## Deploy on Dagster Cloud
-
-The easiest way to deploy your Dagster project is to use Dagster Cloud.
-
-Check out the [Dagster Cloud Documentation](https://docs.dagster.cloud) to learn more.
+Click on the Materialize in the Dagster UI and execute it. Monitor the pipeline execution in the Dagster web UI. Once completed, the fetch_api.csv file in the data directory will contain the fetched ABI data.
